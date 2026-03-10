@@ -11,14 +11,26 @@ async function isYouTubeLive(channelUrl, username) {
   }
 }
 
-async function isKickLive(username) {
+async function getKickChannelData(username) {
   try {
     const res = await fetch(`https://kick.com/api/v1/channels/${username}`);
     const data = await res.json();
-    return data.livestream !== null;
+
+    return {
+      isLive: data?.livestream !== null,
+      avatar:
+        data?.user?.profile_pic ||
+        data?.user?.profile_picture ||
+        data?.profile_picture ||
+        data?.profilepic ||
+        "kk.png"
+    };
   } catch (err) {
-    console.error("Kick canlı kontrol hatası:", err);
-    return false;
+    console.error("Kick kanal verisi alınamadı:", err);
+    return {
+      isLive: false,
+      avatar: "kk.png"
+    };
   }
 }
 
@@ -32,7 +44,28 @@ function extractKickUsername(url) {
   }
 }
 
-function getPlatformIcon(platform) {
+function extractYouTubeHandle(url) {
+  try {
+    const parsed = new URL(url);
+    const parts = parsed.pathname.split("/").filter(Boolean);
+
+    // @MykoApex gibi handle yakala
+    const handle = parts.find((p) => p.startsWith("@"));
+    return handle ? handle.replace("@", "") : "";
+  } catch (err) {
+    return "";
+  }
+}
+
+function getYouTubeAvatar(channel) {
+  const handle = extractYouTubeHandle(channel.url);
+  if (!handle) return "yt.png";
+
+  // Unavatar sosyal profil avatarı çözmek için tek endpoint sunuyor
+  return `https://unavatar.io/youtube/${encodeURIComponent(handle)}`;
+}
+
+function getFallbackIcon(platform) {
   if (platform === "kick") return "kk.png";
   if (platform === "youtube") return "yt.png";
   return "media.png";
@@ -44,20 +77,27 @@ function getPlatformLabel(platform, channel) {
   return channel.platform || "İçerik Üreticisi";
 }
 
-function createCard(channel, isLive, platform) {
+function createCard(channel, isLive, platform, avatarUrl) {
   const card = document.createElement("div");
   card.className = "channel-card";
 
-  const icon = getPlatformIcon(platform);
   const label = getPlatformLabel(platform, channel);
-  const badge = platform === "icerik"
-    ? ""
-    : isLive
+  const badge =
+    platform === "icerik"
+      ? ""
+      : isLive
       ? `<span class="live-badge">● CANLI</span>`
       : `<span class="offline-badge">● OFFLINE</span>`;
 
+  const fallbackIcon = getFallbackIcon(platform);
+
   card.innerHTML = `
-    <img class="channel-icon" src="${icon}" alt="${platform}">
+    <img
+      class="channel-avatar"
+      src="${avatarUrl || fallbackIcon}"
+      alt="${channel.name}"
+      onerror="this.onerror=null;this.src='${fallbackIcon}'"
+    >
     <div class="channel-main">
       <div class="channel-top">
         <div class="channel-name">${channel.name}</div>
@@ -89,7 +129,9 @@ async function loadChannels() {
     const youtubeStatuses = await Promise.all(
       data.youtube.map(async (channel) => {
         const isLive = await isYouTubeLive(channel.url.trim(), channel.name.trim());
-        return { ...channel, isLive };
+        const avatar = getYouTubeAvatar(channel);
+
+        return { ...channel, isLive, avatar };
       })
     );
 
@@ -99,14 +141,23 @@ async function loadChannels() {
     ];
 
     orderedYoutube.forEach((channel) => {
-      youtubeList.appendChild(createCard(channel, channel.isLive, "youtube"));
+      youtubeList.appendChild(
+        createCard(channel, channel.isLive, "youtube", channel.avatar)
+      );
     });
 
     const kickStatuses = await Promise.all(
       data.kick.map(async (channel) => {
         const username = extractKickUsername(channel.url);
-        const isLive = username ? await isKickLive(username) : false;
-        return { ...channel, isLive };
+        const kickData = username
+          ? await getKickChannelData(username)
+          : { isLive: false, avatar: "kk.png" };
+
+        return {
+          ...channel,
+          isLive: kickData.isLive,
+          avatar: kickData.avatar
+        };
       })
     );
 
@@ -116,11 +167,14 @@ async function loadChannels() {
     ];
 
     orderedKick.forEach((channel) => {
-      kickList.appendChild(createCard(channel, channel.isLive, "kick"));
+      kickList.appendChild(
+        createCard(channel, channel.isLive, "kick", channel.avatar)
+      );
     });
 
     data.icerik.forEach((channel) => {
-      icerikList.appendChild(createCard(channel, false, "icerik"));
+      const avatar = getYouTubeAvatar(channel);
+      icerikList.appendChild(createCard(channel, false, "icerik", avatar));
     });
   } catch (err) {
     console.error("Kanal listesi yüklenemedi:", err);
