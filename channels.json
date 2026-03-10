@@ -9,8 +9,7 @@
       "name": "YERİNİ AL",
       "platform": "Kick",
       "url": "-"
-    },
-  
+    }
   ],
 
   "youtube": [
@@ -19,15 +18,14 @@
       "platform": "YouTube",
       "url": "https://www.youtube.com/@MykoApex/streams",
       "channelID": "UCt6fXp7weQzK5w2j5scnOLA"
-    }
-  ],
-  {
+    },
+    {
       "name": "YERİNİ AL",
       "platform": "YouTube",
       "url": "-",
       "channelID": "-"
     }
-  ]
+  ],
 
   "icerik": []
 }
