@@ -1,9 +1,14 @@
 {
   "kick": [
-    { 
-      "name": "ApexMyko", 
-      "platform": "Kick", 
-      "url": "https://kick.com/apex-myko" 
+    {
+      "name": "ApexMyko",
+      "platform": "Kick",
+      "url": "https://kick.com/apex-myko"
+    },
+    {
+      "name": "Superior",
+      "platform": "Kick",
+      "url": "https://kick.com/superior"
     }
   ],
 
@@ -18,10 +23,3 @@
 
   "icerik": []
 }
-  },
-  {
-    "name": "Superior",
-    "platform": "Kick",
-    "url": "https://kick.com/superior"
-  }
-],
