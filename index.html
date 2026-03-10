@@ -1,1 +1,237 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APEXMYKO Yayıncıları</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1020, #111827);
+      color: white;
+      min-height: 100vh;
+      padding: 30px 20px 60px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .socials a {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+      transition: 0.2s ease;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .socials a:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.16);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 38px;
+      color: #fff;
+      text-shadow: 0 0 12px rgba(59,130,246,0.35);
+    }
+
+    h2 {
+      margin: 36px 0 18px;
+      font-size: 26px;
+      color: #93c5fd;
+      border-left: 4px solid #3b82f6;
+      padding-left: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 18px;
+      padding: 18px;
+      text-align: center;
+      transition: 0.25s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.20);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59,130,246,0.45);
+      box-shadow: 0 10px 28px rgba(59,130,246,0.15);
+    }
+
+    .card a {
+      text-decoration: none;
+      color: white;
+      display: block;
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 12px;
+      border: 3px solid rgba(255,255,255,0.14);
+    }
+
+    .name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .role {
+      font-size: 14px;
+      color: #cbd5e1;
+      margin-bottom: 10px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .live {
+      background: #22c55e;
+      box-shadow: 0 0 10px #22c55e;
+    }
+
+    .offline {
+      background: #ef4444;
+      box-shadow: 0 0 8px #ef4444;
+    }
+
+    .footer-note {
+      margin-top: 40px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="socials">
+      <a href="https://discord.gg/SENINLINKIN" target="_blank" title="Discord">D</a>
+      <a href="https://kick.com/" target="_blank" title="Kick">K</a>
+      <a href="https://instagram.com/" target="_blank" title="Instagram">I</a>
+      <a href="https://youtube.com/" target="_blank" title="YouTube">Y</a>
+      <a href="https://facebook.com/" target="_blank" title="Facebook">F</a>
+    </div>
+
+    <h1>APEXMYKO Yayıncıları</h1>
+
+    <h2>YouTube Yayıncıları</h2>
+    <div class="grid">
+      <div class="card">
+        <a href="https://youtube.com/@ornekkanal" target="_blank">
+          <img class="avatar" src="https://via.placeholder.com/150" alt="Yayıncı Avatarı">
+          <div class="name">PvP Adam</div>
+          <div class="role">YouTube Yayıncısı</div>
+          <div class="status"><span class="dot offline"></span> Offline</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="https://youtube.com/@ornekkanal2" target="_blank">
+          <img class="avatar" src="https://via.placeholder.com/150" alt="Yayıncı Avatarı">
+          <div class="name">Valhalla TV</div>
+          <div class="role">YouTube Yayıncısı</div>
+          <div class="status"><span class="dot offline"></span> Offline</div>
+        </a>
+      </div>
+    </div>
+
+    <h2>Kick Yayıncıları</h2>
+    <div class="grid">
+      <div class="card">
+        <a href="https://kick.com/ornekkick" target="_blank">
+          <img class="avatar" src="https://via.placeholder.com/150" alt="Yayıncı Avatarı">
+          <div class="name">KnightHero</div>
+          <div class="role">Kick Yayıncısı</div>
+          <div class="status"><span class="dot live"></span> Canlı</div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="https://kick.com/ornekkick2" target="_blank">
+          <img class="avatar" src="https://via.placeholder.com/150" alt="Yayıncı Avatarı">
+          <div class="name">BloodaxeTV</div>
+          <div class="role">Kick Yayıncısı</div>
+          <div class="status"><span class="dot offline"></span> Offline</div>
+        </a>
+      </div>
+    </div>
+
+    <h2>İçerik Üreticilerimiz</h2>
+    <div class="grid">
+      <div class="card">
+        <a href="https://instagram.com/" target="_blank">
+          <img class="avatar" src="https://via.placeholder.com/150" alt="İçerik Üreticisi">
+          <div class="name">Apex Creator</div>
+          <div class="role">İçerik Üreticisi</div>
+          <div class="status"><span class="dot offline"></span> Profil</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      APEXMYKO VALHALLA • Resmi Yayıncı Listesi
+    </div>
+  </div>
+</body>
+</html>
