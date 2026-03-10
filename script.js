@@ -48,8 +48,6 @@ function extractYouTubeHandle(url) {
   try {
     const parsed = new URL(url);
     const parts = parsed.pathname.split("/").filter(Boolean);
-
-    // @MykoApex gibi handle yakala
     const handle = parts.find((p) => p.startsWith("@"));
     return handle ? handle.replace("@", "") : "";
   } catch (err) {
@@ -61,33 +59,29 @@ function getYouTubeAvatar(channel) {
   const handle = extractYouTubeHandle(channel.url);
   if (!handle) return "yt.png";
 
-  // Unavatar sosyal profil avatarı çözmek için tek endpoint sunuyor
   return `https://unavatar.io/youtube/${encodeURIComponent(handle)}`;
 }
 
 function getFallbackIcon(platform) {
   if (platform === "kick") return "kk.png";
   if (platform === "youtube") return "yt.png";
-  return "media.png";
+  return "yt.png";
 }
 
-function getPlatformLabel(platform, channel) {
+function getPlatformLabel(platform) {
   if (platform === "kick") return "Kick Yayıncısı";
   if (platform === "youtube") return "YouTube Yayıncısı";
-  return channel.platform || "İçerik Üreticisi";
+  return "";
 }
 
 function createCard(channel, isLive, platform, avatarUrl) {
   const card = document.createElement("div");
   card.className = "channel-card";
 
-  const label = getPlatformLabel(platform, channel);
-  const badge =
-    platform === "icerik"
-      ? ""
-      : isLive
-      ? `<span class="live-badge">● CANLI</span>`
-      : `<span class="offline-badge">● OFFLINE</span>`;
+  const label = getPlatformLabel(platform);
+  const badge = isLive
+    ? `<span class="live-badge">● CANLI</span>`
+    : `<span class="offline-badge">● OFFLINE</span>`;
 
   const fallbackIcon = getFallbackIcon(platform);
 
@@ -120,11 +114,9 @@ async function loadChannels() {
 
     const youtubeList = document.querySelector(".youtube-list");
     const kickList = document.querySelector(".kick-list");
-    const icerikList = document.querySelector(".icerik-list");
 
     youtubeList.innerHTML = "";
     kickList.innerHTML = "";
-    icerikList.innerHTML = "";
 
     const youtubeStatuses = await Promise.all(
       data.youtube.map(async (channel) => {
@@ -170,11 +162,6 @@ async function loadChannels() {
       kickList.appendChild(
         createCard(channel, channel.isLive, "kick", channel.avatar)
       );
-    });
-
-    data.icerik.forEach((channel) => {
-      const avatar = getYouTubeAvatar(channel);
-      icerikList.appendChild(createCard(channel, false, "icerik", avatar));
     });
   } catch (err) {
     console.error("Kanal listesi yüklenemedi:", err);
