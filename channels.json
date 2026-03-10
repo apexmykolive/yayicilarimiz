@@ -6,16 +6,12 @@
       "url": "https://kick.com/apex-myko"
     },
     {
-      "name": "Superior",
+      "name": "YERİNİ AL",
       "platform": "Kick",
-      "url": "https://kick.com/superior"
-    }
+      "url": "-"
+    },
+  
   ],
-  {
-      "name": "Sinco",
-      "platform": "Kick",
-      "url": "https://kick.com/sinco"
-    }
 
   "youtube": [
     {
@@ -23,6 +19,13 @@
       "platform": "YouTube",
       "url": "https://www.youtube.com/@MykoApex/streams",
       "channelID": "UCt6fXp7weQzK5w2j5scnOLA"
+    }
+  ],
+  {
+      "name": "YERİNİ AL",
+      "platform": "YouTube",
+      "url": "-",
+      "channelID": "-"
     }
   ],
 
