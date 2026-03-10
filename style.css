@@ -52,7 +52,7 @@ body::after {
   width: 200%;
   height: 200%;
   background: url("particles.png");
-  opacity: 0.05;
+  opacity: 0.12;
   pointer-events: none;
   animation: particlesMove 120s linear infinite;
   z-index: 0;
@@ -409,4 +409,16 @@ transition:0.25s;
 .social-bar a:hover img{
 filter:drop-shadow(0 0 8px rgba(85,178,255,0.7));
 transform:scale(1.1);
+}
+
+@keyframes particlesMove{
+0%{
+transform:translate(0,0);
+}
+50%{
+transform:translate(-200px,-150px);
+}
+100%{
+transform:translate(0,0);
+}
 }
