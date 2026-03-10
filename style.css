@@ -132,8 +132,8 @@ body::after {
 }
 
 .social-bar a {
-  width: 58px;
-  height: 58px;
+  width: 64px;
+  height: 64px;
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -152,8 +152,8 @@ body::after {
 }
 
 .social-bar img {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
   display: block;
 }
@@ -401,4 +401,12 @@ body::after {
   100% {
     transform: translate(0,0);
   }
+}
+.social-bar img{
+transition:0.25s;
+}
+
+.social-bar a:hover img{
+filter:drop-shadow(0 0 8px rgba(85,178,255,0.7));
+transform:scale(1.1);
 }
