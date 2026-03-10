@@ -1,0 +1,20 @@
+{
+  "kick": [
+    { 
+      "name": "ApexMyko", 
+      "platform": "Kick", 
+      "url": "https://kick.com/apex-myko" 
+    }
+  ],
+
+  "youtube": [
+    {
+      "name": "MykoApex",
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/@MykoApex/streams",
+      "channelID": "UCt6fXp7weQzK5w2j5scnOLA"
+    }
+  ],
+
+  "icerik": []
+}
