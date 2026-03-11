@@ -387,3 +387,27 @@ body::before {
     height: 28px;
   }
 }
+.channel-link,
+.channel-link:visited {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  text-decoration: none !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  padding: 9px 12px !important;
+  border-radius: 12px !important;
+
+  background: linear-gradient(180deg, #fff4a3, #ffe95a) !important;
+  color: #1b1600 !important;
+  box-shadow: 0 4px 14px rgba(255, 233, 90, 0.35) !important;
+  border: 1px solid rgba(255, 233, 90, 0.35) !important;
+}
+
+.channel-link:hover,
+.channel-link:focus {
+  background: linear-gradient(180deg, #fff7bf, #ffe95a) !important;
+  color: #1b1600 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(255, 233, 90, 0.45) !important;
+}
