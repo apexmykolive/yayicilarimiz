@@ -327,14 +327,17 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: white;
   text-decoration: none;
   font-size: 13px;
   font-weight: 700;
   padding: 9px 12px;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(37, 112, 255, 0.85), rgba(83, 214, 255, 0.85));
-  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  background: linear-gradient(180deg, #fff4a3, #ffe95a);
+  color: #1b1600;
+  box-shadow: 0 4px 14px rgba(255, 233, 90, 0.35);
+
+  transition: 0.2s;
 }
 
 .channel-link:hover {
