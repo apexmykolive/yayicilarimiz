@@ -411,3 +411,12 @@ body::before {
   transform: translateY(-2px) !important;
   box-shadow: 0 8px 22px rgba(255, 233, 90, 0.45) !important;
 }
+.live-badge{
+animation: pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(39,209,127,0.7);}
+70%{box-shadow:0 0 0 10px rgba(39,209,127,0);}
+100%{box-shadow:0 0 0 0 rgba(39,209,127,0);}
+}
