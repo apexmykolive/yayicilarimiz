@@ -41,7 +41,7 @@ body {
   object-fit: cover;
   z-index: -3;
   pointer-events: none;
-  filter: brightness(0.7);
+  filter: brightness(0.95);
 }
 
 /* DARK OVERLAY */
