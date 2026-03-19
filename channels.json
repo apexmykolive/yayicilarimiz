@@ -55,13 +55,12 @@
       "platform": "Kick",
       "url": "https://kick.com/marcotw"
     },
-      {
+    {
       "name": "xStaunchx",
       "platform": "Kick",
       "url": "https://kick.com/xstaunchx"
     },
-    
-     {
+    {
       "name": "iCharlessx4",
       "platform": "Kick",
       "url": "https://kick.com/icharlessx4"
@@ -71,9 +70,7 @@
       "platform": "Kick",
       "url": "https://kick.com/yorukoglu"
     }
-    
   ],
-
   "youtube": [
     {
       "name": "MykoApex",
@@ -118,6 +115,5 @@
       "channelID": "-"
     }
   ],
-
   "icerik": []
 }
